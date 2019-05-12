@@ -472,7 +472,7 @@ ErrorWaitForC:
 
 ; ===========================================================================
 
-Art_Text:	incbin	"binaries\menutext.bin" ; text used in level select and debug mode
+Art_Text:	incbin	"graphics\uncompressed\menutext.bin" ; text used in level select and debug mode
 		even
 
 ; ===========================================================================
@@ -2699,7 +2699,7 @@ Level_ClrRam:
 
 	Level_ClrVars1:
 		move.l	d0,(a1)+
-		dbf	d1,Level_ClrVars1 ; clear miscellaneous variables
+		dbf	d1,Level_ClrVars1 ; clear misc variables
 
 		lea	(v_screenposx).w,a1
 		moveq	#0,d0
@@ -2707,7 +2707,7 @@ Level_ClrRam:
 
 	Level_ClrVars2:
 		move.l	d0,(a1)+
-		dbf	d1,Level_ClrVars2 ; clear miscellaneous variables
+		dbf	d1,Level_ClrVars2 ; clear misc variables
 
 		lea	(v_oscillate+2).w,a1
 		moveq	#0,d0
@@ -8339,9 +8339,9 @@ loc_1C962:
 
 		include	"includes\HUD (part 2).asm"
 
-Art_Hud:	incbin	"binaries\HUD Numbers.bin" ; 8x16 pixel numbers on HUD
+Art_Hud:	incbin	"graphics\uncompressed\HUD Numbers.bin" ; 8x16 pixel numbers on HUD
 		even
-Art_LivesNums:	incbin	"binaries\Lives Counter Numbers.bin" ; 8x8 pixel numbers on lives counter
+Art_LivesNums:	incbin	"graphics\uncompressed\Lives Counter Numbers.bin" ; 8x8 pixel numbers on lives counter
 		even
 
 		include	"objects\DebugMode.asm"
@@ -8351,28 +8351,28 @@ Art_LivesNums:	incbin	"binaries\Lives Counter Numbers.bin" ; 8x8 pixel numbers o
 
 		align	$200,$FF
 		if Revision=0
-Nem_SegaLogo:	incbin	"binaries\Sega Logo.bin"	; large Sega logo
+Nem_SegaLogo:	incbin	"graphics\nemesis\Sega Logo.bin"	; large Sega logo
 		even
 Eni_SegaLogo:	incbin	"tilemaps\Sega Logo.bin" ; large Sega logo (mappings)
 		even
 		else
 			dcb.b	$300,$FF
-	Nem_SegaLogo:	incbin	"binaries\Sega Logo (JP1).bin" ; large Sega logo
+	Nem_SegaLogo:	incbin	"graphics\nemesis\Sega Logo (JP1).bin" ; large Sega logo
 			even
 	Eni_SegaLogo:	incbin	"tilemaps\Sega Logo (JP1).bin" ; large Sega logo (mappings)
 			even
 		endc
 Eni_Title:	incbin	"tilemaps\Title Screen.bin" ; title screen foreground (mappings)
 		even
-Nem_TitleFg:	incbin	"binaries\Title Screen Foreground.bin"
+Nem_TitleFg:	incbin	"graphics\nemesis\Title Screen Foreground.bin"
 		even
-Nem_TitleSonic:	incbin	"binaries\Title Screen Sonic.bin"
+Nem_TitleSonic:	incbin	"graphics\nemesis\Title Screen Sonic.bin"
 		even
-Nem_TitleTM:	incbin	"binaries\Title Screen TM.bin"
+Nem_TitleTM:	incbin	"graphics\nemesis\Title Screen TM.bin"
 		even
 Eni_JapNames:	incbin	"tilemaps\Hidden Japanese Credits.bin" ; Japanese credits (mappings)
 		even
-Nem_JapNames:	incbin	"binaries\Hidden Japanese Credits.bin"
+Nem_JapNames:	incbin	"graphics\nemesis\Hidden Japanese Credits.bin"
 		even
 
 Map_Sonic:	include	"sprites\Sonic.asm"
@@ -8381,30 +8381,30 @@ SonicDynPLC:	include	"sprites\Sonic - Dynamic Gfx Script.asm"
 ; ---------------------------------------------------------------------------
 ; Uncompressed graphics	- Sonic
 ; ---------------------------------------------------------------------------
-Art_Sonic:	incbin	"binaries\Sonic.bin"	; Sonic
+Art_Sonic:	incbin	"graphics\uncompressed\Sonic.bin"	; Sonic
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - various
 ; ---------------------------------------------------------------------------
 		if Revision=0
-Nem_Smoke:	incbin	"binaries\Unused - Smoke.bin"
+Nem_Smoke:	incbin	"graphics\nemesis\Unused - Smoke.bin"
 		even
-Nem_SyzSparkle:	incbin	"binaries\Unused - SYZ Sparkles.bin"
+Nem_SyzSparkle:	incbin	"graphics\nemesis\Unused - SYZ Sparkles.bin"
 		even
 		else
 		endc
-Nem_Shield:	incbin	"binaries\Shield.bin"
+Nem_Shield:	incbin	"graphics\nemesis\Shield.bin"
 		even
-Nem_Stars:	incbin	"binaries\Invincibility Stars.bin"
+Nem_Stars:	incbin	"graphics\nemesis\Invincibility Stars.bin"
 		even
 		if Revision=0
-Nem_LzSonic:	incbin	"binaries\Unused - LZ Sonic.bin" ; Sonic holding his breath
+Nem_LzSonic:	incbin	"graphics\nemesis\Unused - LZ Sonic.bin" ; Sonic holding his breath
 		even
-Nem_UnkFire:	incbin	"binaries\Unused - Fireball.bin" ; unused fireball
+Nem_UnkFire:	incbin	"graphics\nemesis\Unused - Fireball.bin" ; unused fireball
 		even
-Nem_Warp:	incbin	"binaries\Unused - SStage Flash.bin" ; entry to special stage flash
+Nem_Warp:	incbin	"graphics\nemesis\Unused - SStage Flash.bin" ; entry to special stage flash
 		even
-Nem_Goggle:	incbin	"binaries\Unused - Goggles.bin" ; unused goggles
+Nem_Goggle:	incbin	"graphics\nemesis\Unused - Goggles.bin" ; unused goggles
 		even
 		else
 		endc
@@ -8414,300 +8414,300 @@ Map_SSWalls:	include	"sprites\SS Walls.asm"
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - special stage
 ; ---------------------------------------------------------------------------
-Nem_SSWalls:	incbin	"binaries\Special Walls.bin" ; special stage walls
+Nem_SSWalls:	incbin	"graphics\nemesis\Special Walls.bin" ; special stage walls
 		even
 Eni_SSBg1:	incbin	"tilemaps\SS Background 1.bin" ; special stage background (mappings)
 		even
-Nem_SSBgFish:	incbin	"binaries\Special Birds & Fish.bin" ; special stage birds and fish background
+Nem_SSBgFish:	incbin	"graphics\nemesis\Special Birds & Fish.bin" ; special stage birds and fish background
 		even
 Eni_SSBg2:	incbin	"tilemaps\SS Background 2.bin" ; special stage background (mappings)
 		even
-Nem_SSBgCloud:	incbin	"binaries\Special Clouds.bin" ; special stage clouds background
+Nem_SSBgCloud:	incbin	"graphics\nemesis\Special Clouds.bin" ; special stage clouds background
 		even
-Nem_SSGOAL:	incbin	"binaries\Special GOAL.bin" ; special stage GOAL block
+Nem_SSGOAL:	incbin	"graphics\nemesis\Special GOAL.bin" ; special stage GOAL block
 		even
-Nem_SSRBlock:	incbin	"binaries\Special R.bin"	; special stage R block
+Nem_SSRBlock:	incbin	"graphics\nemesis\Special R.bin"	; special stage R block
 		even
-Nem_SS1UpBlock:	incbin	"binaries\Special 1UP.bin" ; special stage 1UP block
+Nem_SS1UpBlock:	incbin	"graphics\nemesis\Special 1UP.bin" ; special stage 1UP block
 		even
-Nem_SSEmStars:	incbin	"binaries\Special Emerald Twinkle.bin" ; special stage stars from a collected emerald
+Nem_SSEmStars:	incbin	"graphics\nemesis\Special Emerald Twinkle.bin" ; special stage stars from a collected emerald
 		even
-Nem_SSRedWhite:	incbin	"binaries\Special Red-White.bin" ; special stage red/white block
+Nem_SSRedWhite:	incbin	"graphics\nemesis\Special Red-White.bin" ; special stage red/white block
 		even
-Nem_SSZone1:	incbin	"binaries\Special ZONE1.bin" ; special stage ZONE1 block
+Nem_SSZone1:	incbin	"graphics\nemesis\Special ZONE1.bin" ; special stage ZONE1 block
 		even
-Nem_SSZone2:	incbin	"binaries\Special ZONE2.bin" ; ZONE2 block
+Nem_SSZone2:	incbin	"graphics\nemesis\Special ZONE2.bin" ; ZONE2 block
 		even
-Nem_SSZone3:	incbin	"binaries\Special ZONE3.bin" ; ZONE3 block
+Nem_SSZone3:	incbin	"graphics\nemesis\Special ZONE3.bin" ; ZONE3 block
 		even
-Nem_SSZone4:	incbin	"binaries\Special ZONE4.bin" ; ZONE4 block
+Nem_SSZone4:	incbin	"graphics\nemesis\Special ZONE4.bin" ; ZONE4 block
 		even
-Nem_SSZone5:	incbin	"binaries\Special ZONE5.bin" ; ZONE5 block
+Nem_SSZone5:	incbin	"graphics\nemesis\Special ZONE5.bin" ; ZONE5 block
 		even
-Nem_SSZone6:	incbin	"binaries\Special ZONE6.bin" ; ZONE6 block
+Nem_SSZone6:	incbin	"graphics\nemesis\Special ZONE6.bin" ; ZONE6 block
 		even
-Nem_SSUpDown:	incbin	"binaries\Special UP-DOWN.bin" ; special stage UP/DOWN block
+Nem_SSUpDown:	incbin	"graphics\nemesis\Special UP-DOWN.bin" ; special stage UP/DOWN block
 		even
-Nem_SSEmerald:	incbin	"binaries\Special Emeralds.bin" ; special stage chaos emeralds
+Nem_SSEmerald:	incbin	"graphics\nemesis\Special Emeralds.bin" ; special stage chaos emeralds
 		even
-Nem_SSGhost:	incbin	"binaries\Special Ghost.bin" ; special stage ghost block
+Nem_SSGhost:	incbin	"graphics\nemesis\Special Ghost.bin" ; special stage ghost block
 		even
-Nem_SSWBlock:	incbin	"binaries\Special W.bin"	; special stage W block
+Nem_SSWBlock:	incbin	"graphics\nemesis\Special W.bin"	; special stage W block
 		even
-Nem_SSGlass:	incbin	"binaries\Special Glass.bin" ; special stage destroyable glass block
+Nem_SSGlass:	incbin	"graphics\nemesis\Special Glass.bin" ; special stage destroyable glass block
 		even
-Nem_ResultEm:	incbin	"binaries\Special Result Emeralds.bin" ; chaos emeralds on special stage results screen
+Nem_ResultEm:	incbin	"graphics\nemesis\Special Result Emeralds.bin" ; chaos emeralds on special stage results screen
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - GHZ stuff
 ; ---------------------------------------------------------------------------
-Nem_Stalk:	incbin	"binaries\GHZ Flower Stalk.bin"
+Nem_Stalk:	incbin	"graphics\nemesis\GHZ Flower Stalk.bin"
 		even
-Nem_Swing:	incbin	"binaries\GHZ Swinging Platform.bin"
+Nem_Swing:	incbin	"graphics\nemesis\GHZ Swinging Platform.bin"
 		even
-Nem_Bridge:	incbin	"binaries\GHZ Bridge.bin"
+Nem_Bridge:	incbin	"graphics\nemesis\GHZ Bridge.bin"
 		even
-Nem_GhzUnkBlock:incbin	"binaries\Unused - GHZ Block.bin"
+Nem_GhzUnkBlock:incbin	"graphics\nemesis\Unused - GHZ Block.bin"
 		even
-Nem_Ball:	incbin	"binaries\GHZ Giant Ball.bin"
+Nem_Ball:	incbin	"graphics\nemesis\GHZ Giant Ball.bin"
 		even
-Nem_Spikes:	incbin	"binaries\Spikes.bin"
+Nem_Spikes:	incbin	"graphics\nemesis\Spikes.bin"
 		even
-Nem_GhzLog:	incbin	"binaries\Unused - GHZ Log.bin"
+Nem_GhzLog:	incbin	"graphics\nemesis\Unused - GHZ Log.bin"
 		even
-Nem_SpikePole:	incbin	"binaries\GHZ Spiked Log.bin"
+Nem_SpikePole:	incbin	"graphics\nemesis\GHZ Spiked Log.bin"
 		even
-Nem_PplRock:	incbin	"binaries\GHZ Purple Rock.bin"
+Nem_PplRock:	incbin	"graphics\nemesis\GHZ Purple Rock.bin"
 		even
-Nem_GhzWall1:	incbin	"binaries\GHZ Breakable Wall.bin"
+Nem_GhzWall1:	incbin	"graphics\nemesis\GHZ Breakable Wall.bin"
 		even
-Nem_GhzWall2:	incbin	"binaries\GHZ Edge Wall.bin"
+Nem_GhzWall2:	incbin	"graphics\nemesis\GHZ Edge Wall.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - LZ stuff
 ; ---------------------------------------------------------------------------
-Nem_Water:	incbin	"binaries\LZ Water Surface.bin"
+Nem_Water:	incbin	"graphics\nemesis\LZ Water Surface.bin"
 		even
-Nem_Splash:	incbin	"binaries\LZ Water & Splashes.bin"
+Nem_Splash:	incbin	"graphics\nemesis\LZ Water & Splashes.bin"
 		even
-Nem_LzSpikeBall:incbin	"binaries\LZ Spiked Ball & Chain.bin"
+Nem_LzSpikeBall:incbin	"graphics\nemesis\LZ Spiked Ball & Chain.bin"
 		even
-Nem_FlapDoor:	incbin	"binaries\LZ Flapping Door.bin"
+Nem_FlapDoor:	incbin	"graphics\nemesis\LZ Flapping Door.bin"
 		even
-Nem_Bubbles:	incbin	"binaries\LZ Bubbles & Countdown.bin"
+Nem_Bubbles:	incbin	"graphics\nemesis\LZ Bubbles & Countdown.bin"
 		even
-Nem_LzBlock3:	incbin	"binaries\LZ 32x16 Block.bin"
+Nem_LzBlock3:	incbin	"graphics\nemesis\LZ 32x16 Block.bin"
 		even
-Nem_LzDoor1:	incbin	"binaries\LZ Vertical Door.bin"
+Nem_LzDoor1:	incbin	"graphics\nemesis\LZ Vertical Door.bin"
 		even
-Nem_Harpoon:	incbin	"binaries\LZ Harpoon.bin"
+Nem_Harpoon:	incbin	"graphics\nemesis\LZ Harpoon.bin"
 		even
-Nem_LzPole:	incbin	"binaries\LZ Breakable Pole.bin"
+Nem_LzPole:	incbin	"graphics\nemesis\LZ Breakable Pole.bin"
 		even
-Nem_LzDoor2:	incbin	"binaries\LZ Horizontal Door.bin"
+Nem_LzDoor2:	incbin	"graphics\nemesis\LZ Horizontal Door.bin"
 		even
-Nem_LzWheel:	incbin	"binaries\LZ Wheel.bin"
+Nem_LzWheel:	incbin	"graphics\nemesis\LZ Wheel.bin"
 		even
-Nem_Gargoyle:	incbin	"binaries\LZ Gargoyle & Fireball.bin"
+Nem_Gargoyle:	incbin	"graphics\nemesis\LZ Gargoyle & Fireball.bin"
 		even
-Nem_LzBlock2:	incbin	"binaries\LZ Blocks.bin"
+Nem_LzBlock2:	incbin	"graphics\nemesis\LZ Blocks.bin"
 		even
-Nem_LzPlatfm:	incbin	"binaries\LZ Rising Platform.bin"
+Nem_LzPlatfm:	incbin	"graphics\nemesis\LZ Rising Platform.bin"
 		even
-Nem_Cork:	incbin	"binaries\LZ Cork.bin"
+Nem_Cork:	incbin	"graphics\nemesis\LZ Cork.bin"
 		even
-Nem_LzBlock1:	incbin	"binaries\LZ 32x32 Block.bin"
+Nem_LzBlock1:	incbin	"graphics\nemesis\LZ 32x32 Block.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - MZ stuff
 ; ---------------------------------------------------------------------------
-Nem_MzMetal:	incbin	"binaries\MZ Metal Blocks.bin"
+Nem_MzMetal:	incbin	"graphics\nemesis\MZ Metal Blocks.bin"
 		even
-Nem_MzSwitch:	incbin	"binaries\MZ Switch.bin"
+Nem_MzSwitch:	incbin	"graphics\nemesis\MZ Switch.bin"
 		even
-Nem_MzGlass:	incbin	"binaries\MZ Green Glass Block.bin"
+Nem_MzGlass:	incbin	"graphics\nemesis\MZ Green Glass Block.bin"
 		even
-Nem_UnkGrass:	incbin	"binaries\Unused - Grass.bin"
+Nem_UnkGrass:	incbin	"graphics\nemesis\Unused - Grass.bin"
 		even
-Nem_MzFire:	incbin	"binaries\Fireballs.bin"
+Nem_MzFire:	incbin	"graphics\nemesis\Fireballs.bin"
 		even
-Nem_Lava:	incbin	"binaries\MZ Lava Nem.bin"
+Nem_Lava:	incbin	"graphics\nemesis\MZ Lava.bin"
 		even
-Nem_MzBlock:	incbin	"binaries\MZ Green Pushable Block.bin"
+Nem_MzBlock:	incbin	"graphics\nemesis\MZ Green Pushable Block.bin"
 		even
-Nem_MzUnkBlock:	incbin	"binaries\Unused - MZ Background.bin"
+Nem_MzUnkBlock:	incbin	"graphics\nemesis\Unused - MZ Background.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - SLZ stuff
 ; ---------------------------------------------------------------------------
-Nem_Seesaw:	incbin	"binaries\SLZ Seesaw.bin"
+Nem_Seesaw:	incbin	"graphics\nemesis\SLZ Seesaw.bin"
 		even
-Nem_SlzSpike:	incbin	"binaries\SLZ Little Spikeball.bin"
+Nem_SlzSpike:	incbin	"graphics\nemesis\SLZ Little Spikeball.bin"
 		even
-Nem_Fan:	incbin	"binaries\SLZ Fan.bin"
+Nem_Fan:	incbin	"graphics\nemesis\SLZ Fan.bin"
 		even
-Nem_SlzWall:	incbin	"binaries\SLZ Breakable Wall.bin"
+Nem_SlzWall:	incbin	"graphics\nemesis\SLZ Breakable Wall.bin"
 		even
-Nem_Pylon:	incbin	"binaries\SLZ Pylon.bin"
+Nem_Pylon:	incbin	"graphics\nemesis\SLZ Pylon.bin"
 		even
-Nem_SlzSwing:	incbin	"binaries\SLZ Swinging Platform.bin"
+Nem_SlzSwing:	incbin	"graphics\nemesis\SLZ Swinging Platform.bin"
 		even
-Nem_SlzBlock:	incbin	"binaries\SLZ 32x32 Block.bin"
+Nem_SlzBlock:	incbin	"graphics\nemesis\SLZ 32x32 Block.bin"
 		even
-Nem_SlzCannon:	incbin	"binaries\SLZ Cannon.bin"
+Nem_SlzCannon:	incbin	"graphics\nemesis\SLZ Cannon.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - SYZ stuff
 ; ---------------------------------------------------------------------------
-Nem_Bumper:	incbin	"binaries\SYZ Bumper.bin"
+Nem_Bumper:	incbin	"graphics\nemesis\SYZ Bumper.bin"
 		even
-Nem_SyzSpike2:	incbin	"binaries\SYZ Small Spikeball.bin"
+Nem_SyzSpike2:	incbin	"graphics\nemesis\SYZ Small Spikeball.bin"
 		even
-Nem_LzSwitch:	incbin	"binaries\Switch.bin"
+Nem_LzSwitch:	incbin	"graphics\nemesis\Switch.bin"
 		even
-Nem_SyzSpike1:	incbin	"binaries\SYZ Large Spikeball.bin"
+Nem_SyzSpike1:	incbin	"graphics\nemesis\SYZ Large Spikeball.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - SBZ stuff
 ; ---------------------------------------------------------------------------
-Nem_SbzWheel1:	incbin	"binaries\SBZ Running Disc.bin"
+Nem_SbzWheel1:	incbin	"graphics\nemesis\SBZ Running Disc.bin"
 		even
-Nem_SbzWheel2:	incbin	"binaries\SBZ Junction Wheel.bin"
+Nem_SbzWheel2:	incbin	"graphics\nemesis\SBZ Junction Wheel.bin"
 		even
-Nem_Cutter:	incbin	"binaries\SBZ Pizza Cutter.bin"
+Nem_Cutter:	incbin	"graphics\nemesis\SBZ Pizza Cutter.bin"
 		even
-Nem_Stomper:	incbin	"binaries\SBZ Stomper.bin"
+Nem_Stomper:	incbin	"graphics\nemesis\SBZ Stomper.bin"
 		even
-Nem_SpinPform:	incbin	"binaries\SBZ Spinning Platform.bin"
+Nem_SpinPform:	incbin	"graphics\nemesis\SBZ Spinning Platform.bin"
 		even
-Nem_TrapDoor:	incbin	"binaries\SBZ Trapdoor.bin"
+Nem_TrapDoor:	incbin	"graphics\nemesis\SBZ Trapdoor.bin"
 		even
-Nem_SbzFloor:	incbin	"binaries\SBZ Collapsing Floor.bin"
+Nem_SbzFloor:	incbin	"graphics\nemesis\SBZ Collapsing Floor.bin"
 		even
-Nem_Electric:	incbin	"binaries\SBZ Electrocuter.bin"
+Nem_Electric:	incbin	"graphics\nemesis\SBZ Electrocuter.bin"
 		even
-Nem_SbzBlock:	incbin	"binaries\SBZ Vanishing Block.bin"
+Nem_SbzBlock:	incbin	"graphics\nemesis\SBZ Vanishing Block.bin"
 		even
-Nem_FlamePipe:	incbin	"binaries\SBZ Flaming Pipe.bin"
+Nem_FlamePipe:	incbin	"graphics\nemesis\SBZ Flaming Pipe.bin"
 		even
-Nem_SbzDoor1:	incbin	"binaries\SBZ Small Vertical Door.bin"
+Nem_SbzDoor1:	incbin	"graphics\nemesis\SBZ Small Vertical Door.bin"
 		even
-Nem_SlideFloor:	incbin	"binaries\SBZ Sliding Floor Trap.bin"
+Nem_SlideFloor:	incbin	"graphics\nemesis\SBZ Sliding Floor Trap.bin"
 		even
-Nem_SbzDoor2:	incbin	"binaries\SBZ Large Horizontal Door.bin"
+Nem_SbzDoor2:	incbin	"graphics\nemesis\SBZ Large Horizontal Door.bin"
 		even
-Nem_Girder:	incbin	"binaries\SBZ Crushing Girder.bin"
+Nem_Girder:	incbin	"graphics\nemesis\SBZ Crushing Girder.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - enemies
 ; ---------------------------------------------------------------------------
-Nem_BallHog:	incbin	"binaries\Enemy Ball Hog.bin"
+Nem_BallHog:	incbin	"graphics\nemesis\Enemy Ball Hog.bin"
 		even
-Nem_Crabmeat:	incbin	"binaries\Enemy Crabmeat.bin"
+Nem_Crabmeat:	incbin	"graphics\nemesis\Enemy Crabmeat.bin"
 		even
-Nem_Buzz:	incbin	"binaries\Enemy Buzz Bomber.bin"
+Nem_Buzz:	incbin	"graphics\nemesis\Enemy Buzz Bomber.bin"
 		even
-Nem_UnkExplode:	incbin	"binaries\Unused - Explosion.bin"
+Nem_UnkExplode:	incbin	"graphics\nemesis\Unused - Explosion.bin"
 		even
-Nem_Burrobot:	incbin	"binaries\Enemy Burrobot.bin"
+Nem_Burrobot:	incbin	"graphics\nemesis\Enemy Burrobot.bin"
 		even
-Nem_Chopper:	incbin	"binaries\Enemy Chopper.bin"
+Nem_Chopper:	incbin	"graphics\nemesis\Enemy Chopper.bin"
 		even
-Nem_Jaws:	incbin	"binaries\Enemy Jaws.bin"
+Nem_Jaws:	incbin	"graphics\nemesis\Enemy Jaws.bin"
 		even
-Nem_Roller:	incbin	"binaries\Enemy Roller.bin"
+Nem_Roller:	incbin	"graphics\nemesis\Enemy Roller.bin"
 		even
-Nem_Motobug:	incbin	"binaries\Enemy Motobug.bin"
+Nem_Motobug:	incbin	"graphics\nemesis\Enemy Motobug.bin"
 		even
-Nem_Newtron:	incbin	"binaries\Enemy Newtron.bin"
+Nem_Newtron:	incbin	"graphics\nemesis\Enemy Newtron.bin"
 		even
-Nem_Yadrin:	incbin	"binaries\Enemy Yadrin.bin"
+Nem_Yadrin:	incbin	"graphics\nemesis\Enemy Yadrin.bin"
 		even
-Nem_Basaran:	incbin	"binaries\Enemy Basaran.bin"
+Nem_Basaran:	incbin	"graphics\nemesis\Enemy Basaran.bin"
 		even
-Nem_Splats:	incbin	"binaries\Enemy Splats.bin"
+Nem_Splats:	incbin	"graphics\nemesis\Enemy Splats.bin"
 		even
-Nem_Bomb:	incbin	"binaries\Enemy Bomb.bin"
+Nem_Bomb:	incbin	"graphics\nemesis\Enemy Bomb.bin"
 		even
-Nem_Orbinaut:	incbin	"binaries\Enemy Orbinaut.bin"
+Nem_Orbinaut:	incbin	"graphics\nemesis\Enemy Orbinaut.bin"
 		even
-Nem_Cater:	incbin	"binaries\Enemy Caterkiller.bin"
+Nem_Cater:	incbin	"graphics\nemesis\Enemy Caterkiller.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - various
 ; ---------------------------------------------------------------------------
-Nem_TitleCard:	incbin	"binaries\Title Cards.bin"
+Nem_TitleCard:	incbin	"graphics\nemesis\Title Cards.bin"
 		even
-Nem_Hud:	incbin	"binaries\HUD.bin"	; HUD (rings, time, score)
+Nem_Hud:	incbin	"graphics\nemesis\HUD.bin"	; HUD (rings, time, score)
 		even
-Nem_Lives:	incbin	"binaries\HUD - Life Counter Icon.bin"
+Nem_Lives:	incbin	"graphics\nemesis\HUD - Life Counter Icon.bin"
 		even
-Nem_Ring:	incbin	"binaries\Rings.bin"
+Nem_Ring:	incbin	"graphics\nemesis\Rings.bin"
 		even
-Nem_Monitors:	incbin	"binaries\Monitors.bin"
+Nem_Monitors:	incbin	"graphics\nemesis\Monitors.bin"
 		even
-Nem_Explode:	incbin	"binaries\Explosion.bin"
+Nem_Explode:	incbin	"graphics\nemesis\Explosion.bin"
 		even
-Nem_Points:	incbin	"binaries\Points.bin"	; points from destroyed enemy or object
+Nem_Points:	incbin	"graphics\nemesis\Points.bin"	; points from destroyed enemy or object
 		even
-Nem_GameOver:	incbin	"binaries\Game Over.bin"	; game over / time over
+Nem_GameOver:	incbin	"graphics\nemesis\Game Over.bin"	; game over / time over
 		even
-Nem_HSpring:	incbin	"binaries\Spring Horizontal.bin"
+Nem_HSpring:	incbin	"graphics\nemesis\Spring Horizontal.bin"
 		even
-Nem_VSpring:	incbin	"binaries\Spring Vertical.bin"
+Nem_VSpring:	incbin	"graphics\nemesis\Spring Vertical.bin"
 		even
-Nem_SignPost:	incbin	"binaries\Signpost.bin"	; end of level signpost
+Nem_SignPost:	incbin	"graphics\nemesis\Signpost.bin"	; end of level signpost
 		even
-Nem_Lamp:	incbin	"binaries\Lamppost.bin"
+Nem_Lamp:	incbin	"graphics\nemesis\Lamppost.bin"
 		even
-Nem_BigFlash:	incbin	"binaries\Giant Ring Flash.bin"
+Nem_BigFlash:	incbin	"graphics\nemesis\Giant Ring Flash.bin"
 		even
-Nem_Bonus:	incbin	"binaries\Hidden Bonuses.bin" ; hidden bonuses at end of a level
+Nem_Bonus:	incbin	"graphics\nemesis\Hidden Bonuses.bin" ; hidden bonuses at end of a level
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - continue screen
 ; ---------------------------------------------------------------------------
-Nem_ContSonic:	incbin	"binaries\Continue Screen Sonic.bin"
+Nem_ContSonic:	incbin	"graphics\nemesis\Continue Screen Sonic.bin"
 		even
-Nem_MiniSonic:	incbin	"binaries\Continue Screen Stuff.bin"
+Nem_MiniSonic:	incbin	"graphics\nemesis\Continue Screen Stuff.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - animals
 ; ---------------------------------------------------------------------------
-Nem_Rabbit:	incbin	"binaries\Animal Rabbit.bin"
+Nem_Rabbit:	incbin	"graphics\nemesis\Animal Rabbit.bin"
 		even
-Nem_Chicken:	incbin	"binaries\Animal Chicken.bin"
+Nem_Chicken:	incbin	"graphics\nemesis\Animal Chicken.bin"
 		even
-Nem_BlackBird:	incbin	"binaries\Animal Blackbird.bin"
+Nem_BlackBird:	incbin	"graphics\nemesis\Animal Blackbird.bin"
 		even
-Nem_Seal:	incbin	"binaries\Animal Seal.bin"
+Nem_Seal:	incbin	"graphics\nemesis\Animal Seal.bin"
 		even
-Nem_Pig:	incbin	"binaries\Animal Pig.bin"
+Nem_Pig:	incbin	"graphics\nemesis\Animal Pig.bin"
 		even
-Nem_Flicky:	incbin	"binaries\Animal Flicky.bin"
+Nem_Flicky:	incbin	"graphics\nemesis\Animal Flicky.bin"
 		even
-Nem_Squirrel:	incbin	"binaries\Animal Squirrel.bin"
+Nem_Squirrel:	incbin	"graphics\nemesis\Animal Squirrel.bin"
 		even
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - primary patterns and block mappings
 ; ---------------------------------------------------------------------------
 Blk16_GHZ:	incbin	"blocks\16x16\GHZ.bin"
 		even
-Nem_GHZ_1st:	incbin	"binaries\8x8 - GHZ1.bin"	; GHZ primary patterns
+Nem_GHZ_1st:	incbin	"graphics\nemesis\8x8 - GHZ1.bin"	; GHZ primary patterns
 		even
-Nem_GHZ_2nd:	incbin	"binaries\8x8 - GHZ2.bin"	; GHZ secondary patterns
+Nem_GHZ_2nd:	incbin	"graphics\nemesis\8x8 - GHZ2.bin"	; GHZ secondary patterns
 		even
 Blk256_GHZ:	incbin	"blocks\256x256\GHZ.bin"
 		even
 Blk16_LZ:	incbin	"blocks\16x16\LZ.bin"
 		even
-Nem_LZ:		incbin	"binaries\8x8 - LZ.bin"	; LZ primary patterns
+Nem_LZ:		incbin	"graphics\nemesis\8x8 - LZ.bin"	; LZ primary patterns
 		even
 Blk256_LZ:	incbin	"blocks\256x256\LZ.bin"
 		even
 Blk16_MZ:	incbin	"blocks\16x16\MZ.bin"
 		even
-Nem_MZ:		incbin	"binaries\8x8 - MZ.bin"	; MZ primary patterns
+Nem_MZ:		incbin	"graphics\nemesis\8x8 - MZ.bin"	; MZ primary patterns
 		even
 Blk256_MZ:	if Revision=0
 		incbin	"blocks\256x256\MZ.bin"
@@ -8717,19 +8717,19 @@ Blk256_MZ:	if Revision=0
 		even
 Blk16_SLZ:	incbin	"blocks\16x16\SLZ.bin"
 		even
-Nem_SLZ:	incbin	"binaries\8x8 - SLZ.bin"	; SLZ primary patterns
+Nem_SLZ:	incbin	"graphics\nemesis\8x8 - SLZ.bin"	; SLZ primary patterns
 		even
 Blk256_SLZ:	incbin	"blocks\256x256\SLZ.bin"
 		even
 Blk16_SYZ:	incbin	"blocks\16x16\SYZ.bin"
 		even
-Nem_SYZ:	incbin	"binaries\8x8 - SYZ.bin"	; SYZ primary patterns
+Nem_SYZ:	incbin	"graphics\nemesis\8x8 - SYZ.bin"	; SYZ primary patterns
 		even
 Blk256_SYZ:	incbin	"blocks\256x256\SYZ.bin"
 		even
 Blk16_SBZ:	incbin	"blocks\16x16\SBZ.bin"
 		even
-Nem_SBZ:	incbin	"binaries\8x8 - SBZ.bin"	; SBZ primary patterns
+Nem_SBZ:	incbin	"graphics\nemesis\8x8 - SBZ.bin"	; SBZ primary patterns
 		even
 Blk256_SBZ:	if Revision=0
 		incbin	"blocks\256x256\SBZ.bin"
@@ -8740,38 +8740,38 @@ Blk256_SBZ:	if Revision=0
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - bosses and ending sequence
 ; ---------------------------------------------------------------------------
-Nem_Eggman:	incbin	"binaries\Boss - Main.bin"
+Nem_Eggman:	incbin	"graphics\nemesis\Boss - Main.bin"
 		even
-Nem_Weapons:	incbin	"binaries\Boss - Weapons.bin"
+Nem_Weapons:	incbin	"graphics\nemesis\Boss - Weapons.bin"
 		even
-Nem_Prison:	incbin	"binaries\Prison Capsule.bin"
+Nem_Prison:	incbin	"graphics\nemesis\Prison Capsule.bin"
 		even
-Nem_Sbz2Eggman:	incbin	"binaries\Boss - Eggman in SBZ2 & FZ.bin"
+Nem_Sbz2Eggman:	incbin	"graphics\nemesis\Boss - Eggman in SBZ2 & FZ.bin"
 		even
-Nem_FzBoss:	incbin	"binaries\Boss - Final Zone.bin"
+Nem_FzBoss:	incbin	"graphics\nemesis\Boss - Final Zone.bin"
 		even
-Nem_FzEggman:	incbin	"binaries\Boss - Eggman after FZ Fight.bin"
+Nem_FzEggman:	incbin	"graphics\nemesis\Boss - Eggman after FZ Fight.bin"
 		even
-Nem_Exhaust:	incbin	"binaries\Boss - Exhaust Flame.bin"
+Nem_Exhaust:	incbin	"graphics\nemesis\Boss - Exhaust Flame.bin"
 		even
-Nem_EndEm:	incbin	"binaries\Ending - Emeralds.bin"
+Nem_EndEm:	incbin	"graphics\nemesis\Ending - Emeralds.bin"
 		even
-Nem_EndSonic:	incbin	"binaries\Ending - Sonic.bin"
+Nem_EndSonic:	incbin	"graphics\nemesis\Ending - Sonic.bin"
 		even
-Nem_TryAgain:	incbin	"binaries\Ending - Try Again.bin"
+Nem_TryAgain:	incbin	"graphics\nemesis\Ending - Try Again.bin"
 		even
 Nem_EndEggman:	if Revision=0
-		incbin	"binaries\Unused - Eggman Ending.bin"
+		incbin	"graphics\nemesis\Unused - Eggman Ending.bin"
 		else
 		endc
 		even
-Kos_EndFlowers:	incbin	"binaries\Flowers at Ending.bin" ; ending sequence animated flowers
+Kos_EndFlowers:	incbin	"graphics\kosinski\Flowers at Ending.bin" ; ending sequence animated flowers
 		even
-Nem_EndFlower:	incbin	"binaries\Ending - Flowers.bin"
+Nem_EndFlower:	incbin	"graphics\nemesis\Ending - Flowers.bin"
 		even
-Nem_CreditText:	incbin	"binaries\Ending - Credits.bin"
+Nem_CreditText:	incbin	"graphics\nemesis\Ending - Credits.bin"
 		even
-Nem_EndStH:	incbin	"binaries\Ending - StH Logo.bin"
+Nem_EndStH:	incbin	"graphics\nemesis\Ending - StH Logo.bin"
 		even
 
 		if Revision=0
@@ -8824,19 +8824,19 @@ SS_6:		incbin	"specialstages\6.bin"
 ; ---------------------------------------------------------------------------
 ; Animated uncompressed graphics
 ; ---------------------------------------------------------------------------
-Art_GhzWater:	incbin	"binaries\GHZ Waterfall.bin"
+Art_GhzWater:	incbin	"graphics\uncompressed\GHZ Waterfall.bin"
 		even
-Art_GhzFlower1:	incbin	"binaries\GHZ Flower Large.bin"
+Art_GhzFlower1:	incbin	"graphics\uncompressed\GHZ Flower Large.bin"
 		even
-Art_GhzFlower2:	incbin	"binaries\GHZ Flower Small.bin"
+Art_GhzFlower2:	incbin	"graphics\uncompressed\GHZ Flower Small.bin"
 		even
-Art_MzLava1:	incbin	"binaries\MZ Lava Surface.bin"
+Art_MzLava1:	incbin	"graphics\uncompressed\MZ Lava Surface.bin"
 		even
-Art_MzLava2:	incbin	"binaries\MZ Lava Unc.bin"
+Art_MzLava2:	incbin	"graphics\uncompressed\MZ Lava.bin"
 		even
-Art_MzTorch:	incbin	"binaries\MZ Background Torch.bin"
+Art_MzTorch:	incbin	"graphics\uncompressed\MZ Background Torch.bin"
 		even
-Art_SbzSmoke:	incbin	"binaries\SBZ Background Smoke.bin"
+Art_SbzSmoke:	incbin	"graphics\uncompressed\SBZ Background Smoke.bin"
 		even
 
 ; ---------------------------------------------------------------------------
@@ -8966,7 +8966,7 @@ Level_End:	incbin	"levels\ending.bin"
 byte_6A320:	dc.b 0,	0, 0, 0
 
 
-Art_BigRing:	incbin	"binaries\Giant Ring.bin"
+Art_BigRing:	incbin	"graphics\uncompressed\Giant Ring.bin"
 		even
 
 		align	$100,$FF
