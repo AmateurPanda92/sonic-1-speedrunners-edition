@@ -2072,10 +2072,10 @@ GM_Title:
 		bsr.w	LevelSizeLoad
 		bsr.w	DeformLayers
 		lea	(v_16x16).w,a1
-		lea	(Blk16_GHZ).l,a0 ; load	GHZ 16x16 mappings
+		lea	(Blk16_TS).l,a0 ; load title screen 16x16 mappings
 		move.w	#0,d0
 		bsr.w	EniDec
-		lea	(Blk256_GHZ).l,a0 ; load GHZ 256x256 mappings
+		lea	(Blk256_TS).l,a0 ; load title screen 256x256 mappings
 		lea	(v_256x256).l,a1
 		bsr.w	KosDec
 		bsr.w	LevelLayoutLoad
@@ -2096,7 +2096,7 @@ GM_Title:
 		copyTilemap	$FF0000,$C206,$21,$15
 
 		locVRAM	0
-		lea	(Nem_GHZ_1st).l,a0 ; load GHZ patterns
+		lea	(Nem_TS).l,a0 ; load title screen patterns
 		bsr.w	NemDec
 		moveq	#palid_Title,d0	; load title screen palette
 		bsr.w	PalLoad1
