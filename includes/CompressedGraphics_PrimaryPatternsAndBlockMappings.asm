@@ -1,3 +1,16 @@
+Blk16_TS:
+    incbin "blocks\16x16\TS.bin"
+    even
+
+; Title screen primary patterns
+Nem_TS:
+    incbin "graphics\nemesis\8x8 - TS.bin"
+    even
+
+Blk256_TS:
+    incbin "blocks\256x256\TS.bin"
+    even
+
 Blk16_GHZ:
     incbin "blocks\16x16\GHZ.bin"
     even
