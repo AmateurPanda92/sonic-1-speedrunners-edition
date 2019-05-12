@@ -8691,52 +8691,7 @@ Nem_Squirrel:	incbin	"graphics\nemesis\Animal Squirrel.bin"
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - primary patterns and block mappings
 ; ---------------------------------------------------------------------------
-Blk16_GHZ:	incbin	"blocks\16x16\GHZ.bin"
-		even
-Nem_GHZ_1st:	incbin	"graphics\nemesis\8x8 - GHZ1.bin"	; GHZ primary patterns
-		even
-Nem_GHZ_2nd:	incbin	"graphics\nemesis\8x8 - GHZ2.bin"	; GHZ secondary patterns
-		even
-Blk256_GHZ:	incbin	"blocks\256x256\GHZ.bin"
-		even
-Blk16_LZ:	incbin	"blocks\16x16\LZ.bin"
-		even
-Nem_LZ:		incbin	"graphics\nemesis\8x8 - LZ.bin"	; LZ primary patterns
-		even
-Blk256_LZ:	incbin	"blocks\256x256\LZ.bin"
-		even
-Blk16_MZ:	incbin	"blocks\16x16\MZ.bin"
-		even
-Nem_MZ:		incbin	"graphics\nemesis\8x8 - MZ.bin"	; MZ primary patterns
-		even
-Blk256_MZ:	if Revision=0
-		incbin	"blocks\256x256\MZ.bin"
-		else
-		incbin	"blocks\256x256\MZ (JP1).bin"
-		endc
-		even
-Blk16_SLZ:	incbin	"blocks\16x16\SLZ.bin"
-		even
-Nem_SLZ:	incbin	"graphics\nemesis\8x8 - SLZ.bin"	; SLZ primary patterns
-		even
-Blk256_SLZ:	incbin	"blocks\256x256\SLZ.bin"
-		even
-Blk16_SYZ:	incbin	"blocks\16x16\SYZ.bin"
-		even
-Nem_SYZ:	incbin	"graphics\nemesis\8x8 - SYZ.bin"	; SYZ primary patterns
-		even
-Blk256_SYZ:	incbin	"blocks\256x256\SYZ.bin"
-		even
-Blk16_SBZ:	incbin	"blocks\16x16\SBZ.bin"
-		even
-Nem_SBZ:	incbin	"graphics\nemesis\8x8 - SBZ.bin"	; SBZ primary patterns
-		even
-Blk256_SBZ:	if Revision=0
-		incbin	"blocks\256x256\SBZ.bin"
-		else
-		incbin	"blocks\256x256\SBZ (JP1).bin"
-		endc
-		even
+CompressedGraphics_PrimaryPatternsAndBlockMappings: include "includes\CompressedGraphics_PrimaryPatternsAndBlockMappings.asm"
 ; ---------------------------------------------------------------------------
 ; Compressed graphics - bosses and ending sequence
 ; ---------------------------------------------------------------------------
